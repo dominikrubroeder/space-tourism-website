@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
-import TheHeader from '../components/layout/TheHeader';
+import BaseButton from '../components/base/BaseButton';
 import HeroText from '../components/home/HeroText';
 
 export default function Home() {
   useEffect(() => {
-    document.body.className = 'text-white';
+    document.body.className = 'text-white bg-space-dark';
   });
 
   return (
-    <div className="bg-space-dark">
+    <>
       <Head>
         <title>Space tourism</title>
         <meta
@@ -24,11 +24,14 @@ export default function Home() {
         ></link>
       </Head>
 
-      <TheHeader />
-
-      <main className="h-screen bg-home-mobile md:bg-home-tablet xl:bg-home-desktop bg-center bg-no-repeat bg-cover">
-        <HeroText />
-      </main>
-    </div>
+      <section className="h-screen flex items-end bg-home-mobile md:bg-home-tablet xl:bg-home-desktop bg-center bg-no-repeat bg-cover">
+        <div className="flex items-end justify-between max-w-7xl w-full mx-auto pb-32">
+          <HeroText />
+          <BaseButton variant="explore" className="shrink-0">
+            EXPLORE
+          </BaseButton>
+        </div>
+      </section>
+    </>
   );
 }
