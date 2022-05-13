@@ -19,7 +19,9 @@ export default function Home() {
 
       <header>Header</header>
 
-      <main>Main</main>
+      <main>
+        <p>Main. Testing some text and characters.</p>
+      </main>
 
       <footer>Footer</footer>
     </div>
