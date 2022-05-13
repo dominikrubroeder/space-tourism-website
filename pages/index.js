@@ -1,8 +1,13 @@
 import Head from 'next/head';
+import { useEffect } from 'react';
 import TheHeader from '../components/layout/TheHeader';
 import HeroText from '../components/home/HeroText';
 
 export default function Home() {
+  useEffect(() => {
+    document.body.className = 'text-white';
+  });
+
   return (
     <div className="bg-space-dark">
       <Head>
