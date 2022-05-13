@@ -5,3 +5,5 @@ const NavText = (props) => {
     </div>
   );
 };
+
+export default NavText;

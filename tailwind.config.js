@@ -18,6 +18,11 @@ module.exports = {
         'space-dark': '#0B0D17',
         'space-accent': '#0B0D17',
       },
+      backgroundImage: {
+        'home-desktop': 'url("/assets/home/background-home-desktop.jpg")',
+        'home-mobile': 'url("/assets/home/background-home-desktop.jpg")',
+        'home-tablet': 'url("/assets/home/background-home-desktop.jpg")',
+      },
     },
   },
   plugins: [],

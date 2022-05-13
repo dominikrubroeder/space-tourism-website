@@ -1,8 +1,10 @@
 import Head from 'next/head';
+import TheHeader from '../components/layout/TheHeader';
+import HeroText from '../components/home/HeroText';
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-space-dark">
       <Head>
         <title>Space tourism</title>
         <meta
@@ -17,13 +19,11 @@ export default function Home() {
         ></link>
       </Head>
 
-      <header>Header</header>
+      <TheHeader />
 
-      <main>
-        <p>Main. Testing some text and characters.</p>
+      <main className="h-screen bg-home-mobile md:bg-home-tablet xl:bg-home-desktop bg-center bg-no-repeat bg-cover">
+        <HeroText />
       </main>
-
-      <footer>Footer</footer>
     </div>
   );
 }
