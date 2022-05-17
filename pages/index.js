@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
-import ExploreButton from '../components/ExploreButton';
+import ExploreButton from '../components/home/ExploreButton';
 import HeroText from '../components/home/HeroText';
 
 export default function Home() {
@@ -28,7 +28,9 @@ export default function Home() {
         <div className="grid gap-20 h-[80vh] max-w-7xl w-full mx-auto text-center lg:pb-32">
           <HeroText />
 
-          <ExploreButton>EXPLORE</ExploreButton>
+          <ExploreButton>
+            <span className="uppercase">Explore</span>
+          </ExploreButton>
         </div>
       </section>
     </>

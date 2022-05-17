@@ -16,9 +16,9 @@ const navigationItems = [
   },
 ];
 
-const TheNavigation = () => {
+const TheNavigation = (props) => {
   return (
-    <nav className="hidden md:flex md:gap-12 md:bg-white/5 md:backdrop-opacity-10 md:px-10">
+    <nav className={props.className}>
       {navigationItems.map((navigationItem, index) => {
         return (
           <li key={index} className="list-none">
@@ -27,7 +27,7 @@ const TheNavigation = () => {
                 index === 0 ? '/' : `/${navigationItem.title.toLowerCase()}`
               }
             >
-              <a className="flex items-center gap-4 py-10">
+              <a className="flex items-center gap-4 md:py-10">
                 <span>0{index}</span>
                 <NavText>{navigationItem.title.toUpperCase()}</NavText>
               </a>
