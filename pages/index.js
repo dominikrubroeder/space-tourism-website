@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
-import BaseButton from '../components/base/BaseButton';
+import ExploreButton from '../components/ExploreButton';
 import HeroText from '../components/home/HeroText';
 
 export default function Home() {
@@ -24,12 +24,11 @@ export default function Home() {
         ></link>
       </Head>
 
-      <section className="h-screen flex items-end bg-home-mobile md:bg-home-tablet xl:bg-home-desktop bg-center bg-no-repeat bg-cover">
-        <div className="flex items-end justify-between max-w-7xl w-full mx-auto pb-32">
+      <section className="h-screen flex items-end bg-home-mobile overflow-hidden md:bg-home-tablet xl:bg-home-desktop bg-center bg-no-repeat bg-cover p-8">
+        <div className="grid gap-20 h-[80vh] max-w-7xl w-full mx-auto text-center lg:pb-32">
           <HeroText />
-          <BaseButton variant="explore" className="shrink-0">
-            EXPLORE
-          </BaseButton>
+
+          <ExploreButton>EXPLORE</ExploreButton>
         </div>
       </section>
     </>

@@ -1,12 +1,14 @@
 import TheLogo from './TheLogo';
 import TheNavigation from './TheNavigation';
+import TheSidebarTrigger from './TheSidebarTrigger';
 
 const TheHeader = () => {
   return (
-    <header className="fixed top-10 flex items-center gap-8 pl-10 w-full">
+    <header className="fixed top-4 md:top-10 flex items-center justify-between md:justify-start gap-8 px-4 md:pr-0 w-full">
       <TheLogo />
-      <div className="h-[1px] w-full bg-white"></div>
+      <div className="hidden md:h-[1px] md:w-full md:bg-white"></div>
       <TheNavigation />
+      <TheSidebarTrigger />
     </header>
   );
 };

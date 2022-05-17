@@ -18,7 +18,7 @@ const navigationItems = [
 
 const TheNavigation = () => {
   return (
-    <nav className="flex gap-12 bg-white/5 backdrop-opacity-[5rem] px-10">
+    <nav className="hidden md:flex md:gap-12 md:bg-white/5 md:backdrop-opacity-10 md:px-10">
       {navigationItems.map((navigationItem, index) => {
         return (
           <li key={index} className="list-none">
