@@ -5,3 +5,5 @@ const Subheading2 = (props) => {
     </div>
   );
 };
+
+export default Subheading2;
