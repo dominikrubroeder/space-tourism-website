@@ -48,16 +48,19 @@ const CrewPage = () => {
   return (
     <div className="min-h-screen text-white bg-crew-mobile bg-no-repeat bg-center bg-cover md:bg-crew-tablet xl:bg-crew-desktop xl:flex xl:flex-col xl:items-center xl:justify-center">
       <section className="grid gap-8 p-8 pt-24 md:pt-40">
-        <div className="flex gap-2 font-barlow-condensed uppercase">
+        <div className="flex gap-2 justify-center font-barlow-condensed uppercase md:justify-start">
           <span className="opacity-25">02</span>Meet your crew
         </div>
 
-        <div className="w-full grid gap-8 xl:grid-cols-2 xl:max-w-7xl">
-          <div className="grid gap-0">
+        <div className="w-full grid gap-8 md:flex md:flex-col xl:grid xl:grid-cols-2 xl:max-w-7xl">
+          <div className="grid gap-0 md:order-2">
             {crews.map((crew, index) => {
               if (index === activeTab) {
                 return (
-                  <figure key={index} className="mx-auto max-w-[50vh] h-[35vh]">
+                  <figure
+                    key={index}
+                    className="mx-auto max-w-[50vh] h-[35vh] xl:h-[65vh] xl:w-[50vw]"
+                  >
                     <img
                       src={crew.images.webp}
                       className="w-full h-full object-contain block rounded-3xl"
@@ -70,8 +73,8 @@ const CrewPage = () => {
             <hr className="border-white/25" />
           </div>
 
-          <div className="max-w-md grid gap-8 mx-auto">
-            <nav className="flex items-center gap-4 mx-auto">
+          <div className="max-w-md grid gap-8 mx-auto md:order-1 xl:flex xl:flex-col xl:gap-32">
+            <nav className="flex items-center gap-4 mx-auto xl:order-2 xl:ml-0">
               {crews.map((_, index) => {
                 return (
                   <div
@@ -85,7 +88,26 @@ const CrewPage = () => {
               })}
             </nav>
 
-            <div>Content</div>
+            <div className="xl:order-1">
+              {crews.map((crewMember, index) => {
+                if (index === activeTab) {
+                  return (
+                    <div
+                      key={index}
+                      className="grid gap-4 text-center xl:text-left"
+                    >
+                      <div className="grid gap-2">
+                        <div className="font-bellefair opacity-50">
+                          {crewMember.role}
+                        </div>
+                        <h3 className="text-2xl">{crewMember.name}</h3>
+                      </div>
+                      <p className="text-space-accent">{crewMember.bio}</p>
+                    </div>
+                  );
+                }
+              })}
+            </div>
           </div>
         </div>
       </section>
