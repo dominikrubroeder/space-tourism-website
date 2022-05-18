@@ -54,11 +54,13 @@ const DestinationPage = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-white bg-destination-mobile bg-no-repeat bg-center bg-cover md:bg-destination-tablet xl:bg-destination-desktop">
-      <section className="p-8">
-        <div>Pick your destination</div>
+    <div className="min-h-screen text-white bg-destination-mobile bg-no-repeat bg-center bg-cover md:bg-destination-tablet xl:bg-destination-desktop xl:flex xl:flex-col xl:items-center xl:justify-center">
+      <section className="grid gap-8 p-8 pt-24 md:pt-40">
+        <div className="flex gap-2 font-barlow-condensed uppercase">
+          <span className="opacity-25">01</span>Pick your destination
+        </div>
 
-        <div className="w-full xl:grid xl:gap-4 xl:grid-cols-2 xl:max-w-7xl">
+        <div className="w-full grid gap-8 xl:grid-cols-2 xl:max-w-7xl">
           {destinations.map((destination, index) => {
             if (index === activeTab) {
               return (
@@ -66,19 +68,22 @@ const DestinationPage = () => {
                   key={index}
                   src={destination.images.webp}
                   alt={destination.name}
+                  className="w-[10.625rem] h-[10.625rem] mx-auto md:w-[18.75rem] md:h-[18.75rem] xl:w-full xl:h-full"
                 />
               );
             }
           })}
 
-          <div className="max-w-md grid gap-4">
-            <nav className="flex items-center gap-4">
+          <div className="max-w-md grid gap-8 mx-auto">
+            <nav className="flex items-center gap-4 mx-auto">
               {destinations.map((destination, index) => {
                 return (
                   <NavText
                     key={index}
-                    className={`list-none py-2 border-b-2 border-transparent ${
-                      index === activeTab ? 'border-white' : ''
+                    className={`list-none py-2 border-b-2 border-transparent transition-all ${
+                      index === activeTab
+                        ? 'text-white border-white'
+                        : 'text-space-accent'
                     }`}
                     onClick={() => setActiveTab(index)}
                   >
@@ -88,25 +93,41 @@ const DestinationPage = () => {
               })}
             </nav>
 
-            <div>
+            <div className="text-center xl:text-left">
               {destinations.map((destination, index) => {
                 if (index === activeTab) {
-                  return <h2 key={index}>{destination.name}</h2>;
+                  return (
+                    <h1
+                      key={index}
+                      className={`text-[3.5rem] leading-none md:text-[5rem] xl:text-[6.25rem] transition-all}`}
+                    >
+                      {destination.name}
+                    </h1>
+                  );
                 }
               })}
 
               {destinations.map((destination, index) => {
                 if (index === activeTab) {
-                  return <p key={index}>{destination.description}</p>;
+                  return (
+                    <p
+                      key={index}
+                      className="min-h-[10rem] md:min-h-[6rem] text-space-accent"
+                    >
+                      {destination.description}
+                    </p>
+                  );
                 }
               })}
             </div>
 
-            <hr />
+            <hr className="border-white/25" />
 
-            <div className="grid grid-cols-2 gap-2">
-              <div>
-                <Subheading2>Avg. distance</Subheading2>
+            <div className="grid gap-8 md:grid-cols-2">
+              <div className="text-center xl:text-left">
+                <Subheading2 className="text-space-accent">
+                  Avg. distance
+                </Subheading2>
 
                 {destinations.map((destination, index) => {
                   if (index === activeTab) {
@@ -118,8 +139,11 @@ const DestinationPage = () => {
                   }
                 })}
               </div>
-              <div>
-                <Subheading2>Est. travel time</Subheading2>
+
+              <div className="text-center xl:text-left">
+                <Subheading2 className="text-space-accent">
+                  Est. travel time
+                </Subheading2>
 
                 {destinations.map((destination, index) => {
                   if (index === activeTab) {

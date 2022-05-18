@@ -21,7 +21,7 @@ const TheNavigation = (props) => {
     <nav className={props.className}>
       {navigationItems.map((navigationItem, index) => {
         return (
-          <li key={index} className="list-none">
+          <li key={index} className="list-none text-white">
             <Link
               href={
                 index === 0 ? '/' : `/${navigationItem.title.toLowerCase()}`

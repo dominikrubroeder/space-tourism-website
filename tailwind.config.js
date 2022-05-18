@@ -16,7 +16,7 @@ module.exports = {
       },
       colors: {
         'space-dark': '#0B0D17',
-        'space-accent': '#0B0D17',
+        'space-accent': '#D0D6F9',
       },
       backgroundImage: {
         'home-desktop': 'url("/assets/home/background-home-desktop.jpg")',
