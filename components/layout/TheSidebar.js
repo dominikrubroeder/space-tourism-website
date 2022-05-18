@@ -6,7 +6,7 @@ const TheSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+    <div className="md:hidden">
       <TheSidebarTrigger onClick={setIsOpen} />
       {isOpen && (
         <TheNavigation

@@ -4,10 +4,10 @@ import TheSidebar from './TheSidebar';
 
 const TheHeader = () => {
   return (
-    <header className="fixed top-4 md:top-10 flex items-center justify-between md:justify-start gap-8 px-4 md:pr-0 w-full">
+    <header className="fixed top-0 flex items-center justify-between w-full p-4 md:p-0 md:pl-4 md:top-0 xl:pl-10 xl:top-10 xl:justify-start">
       <TheLogo />
-      <div className="hidden md:h-[1px] md:w-full md:bg-white"></div>
-      <TheNavigation className="hidden md:flex md:gap-12 md:bg-white/5 md:backdrop-opacity-10 md:px-10" />
+      <div className="hidden xl:translate-x-10 xl:h-[1px] xl:block xl:w-full xl:bg-white"></div>
+      <TheNavigation className="hidden md:flex md:gap-12 md:bg-white/5 md:backdrop-opacity-10 md:px-16 lg:px-32" />
       <TheSidebar />
     </header>
   );
