@@ -54,8 +54,8 @@ const DestinationPage = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="min-h-screen text-white bg-destination-mobile bg-no-repeat bg-center bg-cover md:bg-destination-tablet xl:bg-destination-desktop xl:flex xl:flex-col xl:items-center xl:justify-center">
-      <section className="grid gap-8 p-8 pt-24 md:pt-40">
+    <div className="min-h-screen text-white bg-destination-mobile bg-no-repeat bg-center bg-cover md:bg-destination-tablet xl:bg-destination-desktop">
+      <section className="grid gap-8 p-8 pt-24 mx-auto md:pt-40 xl:max-w-5xl xl:w-full">
         <div className="flex gap-2 font-barlow-condensed uppercase">
           <span className="opacity-25">01</span>Pick your destination
         </div>

@@ -46,8 +46,8 @@ const CrewPage = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="min-h-screen text-white bg-crew-mobile bg-no-repeat bg-center bg-cover md:bg-crew-tablet xl:bg-crew-desktop xl:flex xl:flex-col xl:items-center xl:justify-center">
-      <section className="grid gap-8 p-8 pt-24 md:pt-40">
+    <div className="min-h-screen text-white bg-crew-mobile bg-no-repeat bg-center bg-cover md:bg-crew-tablet xl:bg-crew-desktop">
+      <section className="grid gap-8 p-8 pt-24 max-w-5xl w-full mx-auto md:pt-40">
         <div className="flex gap-2 justify-center font-barlow-condensed uppercase md:justify-start">
           <span className="opacity-25">02</span>Meet your crew
         </div>

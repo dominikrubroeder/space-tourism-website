@@ -37,8 +37,8 @@ const TechnologyPage = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="min-h-screen text-white bg-technology-mobile bg-no-repeat bg-center bg-cover md:bg-technology-tablet xl:bg-technology-desktop xl:flex xl:flex-col xl:items-center xl:justify-center">
-      <section className="grid gap-8 pt-24 md:pt-40 xl:max-w-7xl xl:w-full">
+    <div className="min-h-screen text-white bg-technology-mobile bg-no-repeat bg-center bg-cover md:bg-technology-tablet xl:bg-technology-desktop">
+      <section className="grid gap-8 pt-24 mx-auto md:pt-40 xl:max-w-5xl xl:w-full">
         <div className="flex gap-2 font-barlow-condensed uppercase justify-center md:justify-start md:pl-8">
           <span className="opacity-25">03</span>Space Launch 101
         </div>
@@ -57,7 +57,7 @@ const TechnologyPage = () => {
             }
           })}
 
-          <div className="max-w-md grid gap-8 mx-auto xl:flex xl:gap-4 xl:order-1">
+          <div className="max-w-md grid gap-8 mx-auto xl:ml-0 xl:flex xl:gap-4 xl:order-1">
             <nav className="flex items-center gap-4 mx-auto xl:flex-col">
               {technologies.map((_, index) => {
                 return (
