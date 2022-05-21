@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Breadcrumb from '../../components/layout/Breadcrumb';
+import TopLevelPageSection from '../../components/layout/TopLevelPageSection';
 import NavText from '../../components/typography/NavText';
 import Subheading from '../../components/typography/Subheading';
 import Subheading2 from '../../components/typography/Subheading2';
@@ -38,21 +40,17 @@ const TechnologyPage = () => {
 
   return (
     <div className="min-h-screen text-white bg-technology-mobile bg-no-repeat bg-center bg-cover md:bg-technology-tablet xl:bg-technology-desktop">
-      <section className="grid gap-8 pt-24 mx-auto md:pt-40 xl:max-w-5xl xl:w-full">
-        <div className="flex gap-2 font-barlow-condensed uppercase justify-center md:justify-start md:pl-8">
-          <span className="opacity-25">03</span>Space Launch 101
-        </div>
+      <TopLevelPageSection>
+        <Breadcrumb title="Space Launch 101" count="03" />
 
         <div className="w-full grid gap-8 xl:grid-cols-2 xl:max-w-7xl xl:flex">
           {technologies.map((technology, index) => {
             if (index === activeTab) {
               return (
-                <img
+                <div
                   key={index}
-                  src={technology.images.landscape}
-                  alt={technology.name}
-                  className="w-full xl:w-80 xl:order-2"
-                />
+                  className={`w-full h-[19.375rem] bg-center bg-cover bg-no-repeat bg-technology-launch-vehicle-landscape xl:bg-technology-launch-vehicle-portrait xl:w-80 xl:order-2`}
+                ></div>
               );
             }
           })}
@@ -99,7 +97,7 @@ const TechnologyPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </TopLevelPageSection>
     </div>
   );
 };

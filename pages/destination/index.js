@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Breadcrumb from '../../components/layout/Breadcrumb';
+import TopLevelPageSection from '../../components/layout/TopLevelPageSection';
 import NavText from '../../components/typography/NavText';
 import Subheading from '../../components/typography/Subheading';
 import Subheading2 from '../../components/typography/Subheading2';
@@ -55,10 +57,8 @@ const DestinationPage = () => {
 
   return (
     <div className="min-h-screen text-white bg-destination-mobile bg-no-repeat bg-center bg-cover md:bg-destination-tablet xl:bg-destination-desktop">
-      <section className="grid gap-8 p-8 pt-24 mx-auto md:pt-40 xl:max-w-5xl xl:w-full">
-        <div className="flex gap-2 font-barlow-condensed uppercase">
-          <span className="opacity-25">01</span>Pick your destination
-        </div>
+      <TopLevelPageSection>
+        <Breadcrumb title="Pick your destination" count="01" />
 
         <div className="w-full grid gap-8 xl:grid-cols-2 xl:max-w-7xl">
           {destinations.map((destination, index) => {
@@ -156,7 +156,7 @@ const DestinationPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </TopLevelPageSection>
     </div>
   );
 };

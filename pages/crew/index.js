@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Breadcrumb from '../../components/layout/Breadcrumb';
+import TopLevelPageSection from '../../components/layout/TopLevelPageSection';
 import NavText from '../../components/typography/NavText';
 import Subheading from '../../components/typography/Subheading';
 import Subheading2 from '../../components/typography/Subheading2';
@@ -47,10 +49,8 @@ const CrewPage = () => {
 
   return (
     <div className="min-h-screen text-white bg-crew-mobile bg-no-repeat bg-center bg-cover md:bg-crew-tablet xl:bg-crew-desktop">
-      <section className="grid gap-8 p-8 pt-24 max-w-5xl w-full mx-auto md:pt-40">
-        <div className="flex gap-2 justify-center font-barlow-condensed uppercase md:justify-start">
-          <span className="opacity-25">02</span>Meet your crew
-        </div>
+      <TopLevelPageSection>
+        <Breadcrumb title="Meet your crew" count="02" />
 
         <div className="w-full grid gap-8 md:flex md:flex-col xl:grid xl:grid-cols-2 xl:max-w-7xl">
           <div className="grid gap-0 md:order-2">
@@ -110,7 +110,7 @@ const CrewPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </TopLevelPageSection>
     </div>
   );
 };
