@@ -65,7 +65,7 @@ const CrewPage = () => {
                         ease: 'easeOut',
                         delay: 0.3,
                       }}
-                      className="flex align-bottom justify-end mx-auto max-w-[50vh] h-[35vh] md:h-[45vh] xl:h-[65vh] xl:w-[50vw]"
+                      className="flex align-bottom justify-end mx-auto max-w-[50vh] h-[35vh] md:h-[45vh] xl:max-h-[80vh] xl:max-w-[60vw]"
                     >
                       <img
                         src={crew.images.webp}
@@ -96,7 +96,7 @@ const CrewPage = () => {
                 return (
                   <div
                     key={index}
-                    className={`w-2 h-2 md:w-4 md:h-4 rounded-full cursor-pointer ${
+                    className={`w-2 h-2 md:w-4 md:h-4 rounded-full cursor-pointer transition-all duration-1000 ${
                       index === activeTab ? 'bg-white/100' : 'bg-white/25'
                     }`}
                     onClick={() => setActiveTab(index)}

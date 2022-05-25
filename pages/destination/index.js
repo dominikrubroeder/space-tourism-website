@@ -89,7 +89,7 @@ const DestinationPage = () => {
                 return (
                   <NavText
                     key={index}
-                    className={`list-none py-2 border-b-2 border-transparent transition-all ${
+                    className={`list-none py-2 border-b-2 border-transparent transition-all duration-1000 ${
                       index === activeTab
                         ? 'text-white border-white'
                         : 'text-space-accent'

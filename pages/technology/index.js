@@ -42,7 +42,7 @@ const TechnologyPage = () => {
 
       <TopLevelPageSection>
         <div className="w-full grid gap-8 xl:grid-cols-2 xl:max-w-7xl xl:flex">
-          {technologies.map((technology, index) => {
+          {technologies.map((_, index) => {
             if (index === activeTab) {
               return (
                 <div
@@ -59,7 +59,7 @@ const TechnologyPage = () => {
                 return (
                   <li
                     key={index}
-                    className={`w-10 h-10 rounded-full border border-white/50 list-none flex items-center justify-center md:w-[3.75rem] md:h-[3.75rem] md:text-2xl ${
+                    className={`w-10 h-10 rounded-full border border-white/50 list-none flex items-center justify-center md:w-[3.75rem] md:h-[3.75rem] md:text-2xl transition-all duration-1000 ${
                       index === activeTab
                         ? 'text-space-dark bg-white'
                         : 'text-white'
