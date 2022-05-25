@@ -65,10 +65,17 @@ const DestinationPage = () => {
           {destinations.map((destination, index) => {
             if (index === activeTab) {
               return (
-                <img
+                <motion.img
                   key={index}
                   src={destination.images.webp}
                   alt={destination.name}
+                  initial={{ opacity: 0, x: 32 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 1,
+                    ease: 'easeOut',
+                    delay: 0.3,
+                  }}
                   className="w-[10.625rem] h-[10.625rem] mx-auto md:w-[18.75rem] md:h-[18.75rem] xl:w-full xl:h-full"
                 />
               );
@@ -148,7 +155,7 @@ const DestinationPage = () => {
             />
 
             <div className="grid gap-8 md:grid-cols-2">
-              <div className="text-center xl:text-left">
+              <div>
                 <Subheading2 className="text-space-accent">
                   Avg. distance
                 </Subheading2>
@@ -156,33 +163,45 @@ const DestinationPage = () => {
                 {destinations.map((destination, index) => {
                   if (index === activeTab) {
                     return (
-                      <Subheading key={index}>
-                        {destination.distance}
-                      </Subheading>
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: -32 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 1,
+                          ease: 'easeOut',
+                          delay: 1,
+                        }}
+                      >
+                        <Subheading>{destination.distance}</Subheading>
+                      </motion.div>
                     );
                   }
                 })}
               </div>
 
-              <div className="text-center xl:text-left">
-                <motion.div
-                  initial={{ opacity: 0, y: 32 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 1,
-                    ease: 'easeOut',
-                    delay: 0.3,
-                  }}
-                >
-                  <Subheading2 className="text-space-accent">
-                    Est. travel time
-                  </Subheading2>
-                </motion.div>
+              <div>
+                <Subheading2 className="text-space-accent">
+                  Est. travel time
+                </Subheading2>
 
                 {destinations.map((destination, index) => {
                   if (index === activeTab) {
                     return (
-                      <Subheading key={index}>{destination.travel}</Subheading>
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: -32 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          duration: 1,
+                          ease: 'easeOut',
+                          delay: 1,
+                        }}
+                      >
+                        <Subheading key={index}>
+                          {destination.travel}
+                        </Subheading>
+                      </motion.div>
                     );
                   }
                 })}

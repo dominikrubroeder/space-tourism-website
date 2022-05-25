@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import Breadcrumb from '../../components/layout/Breadcrumb';
 import TopLevelPageSection from '../../components/layout/TopLevelPageSection';
-import NavText from '../../components/typography/NavText';
-import Subheading from '../../components/typography/Subheading';
-import Subheading2 from '../../components/typography/Subheading2';
+import { motion } from 'framer-motion';
 
 const crews = [
   {
@@ -57,20 +55,39 @@ const CrewPage = () => {
             {crews.map((crew, index) => {
               if (index === activeTab) {
                 return (
-                  <figure
-                    key={index}
-                    className="mx-auto max-w-[50vh] h-[35vh] xl:h-[65vh] xl:w-[50vw]"
-                  >
-                    <img
-                      src={crew.images.webp}
-                      className="w-full h-full object-contain block rounded-3xl"
-                      alt={crew.name}
+                  <>
+                    <motion.figure
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 1,
+                        ease: 'easeOut',
+                        delay: 0.3,
+                      }}
+                      className="mx-auto max-w-[50vh] h-[35vh] xl:h-[65vh] xl:w-[50vw]"
+                    >
+                      <img
+                        src={crew.images.webp}
+                        className="w-full h-full object-contain block rounded-3xl"
+                        alt={crew.name}
+                      />
+                    </motion.figure>
+
+                    <motion.hr
+                      initial={{ opacity: 0, width: '0%' }}
+                      animate={{ opacity: 1, width: '100%' }}
+                      transition={{
+                        duration: 1,
+                        ease: 'easeOut',
+                        delay: 0.8,
+                      }}
+                      className="border-white/25"
                     />
-                  </figure>
+                  </>
                 );
               }
             })}
-            <hr className="border-white/25" />
           </div>
 
           <div className="max-w-md grid gap-8 mx-auto md:order-1 xl:flex xl:flex-col xl:gap-32">
@@ -79,7 +96,7 @@ const CrewPage = () => {
                 return (
                   <div
                     key={index}
-                    className={`w-2 h-2 rounded-full ${
+                    className={`w-2 h-2 rounded-full cursor-pointer ${
                       index === activeTab ? 'bg-white/100' : 'bg-white/25'
                     }`}
                     onClick={() => setActiveTab(index)}
@@ -97,12 +114,45 @@ const CrewPage = () => {
                       className="grid gap-4 text-center xl:text-left"
                     >
                       <div className="grid gap-2">
-                        <div className="font-bellefair opacity-50">
+                        <motion.h2
+                          initial={{ opacity: 0, x: -16 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{
+                            duration: 1,
+                            ease: 'easeOut',
+                            delay: 0.6,
+                          }}
+                          className="font-bellefair opacity-50"
+                        >
                           {crewMember.role}
-                        </div>
-                        <h3 className="text-2xl">{crewMember.name}</h3>
+                        </motion.h2>
+
+                        <motion.h1
+                          initial={{ opacity: 0, y: 32 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{
+                            duration: 1,
+                            ease: 'easeOut',
+                            delay: 0.3,
+                          }}
+                          className="text-2xl"
+                        >
+                          {crewMember.name}
+                        </motion.h1>
                       </div>
-                      <p className="text-space-accent">{crewMember.bio}</p>
+
+                      <motion.p
+                        initial={{ opacity: 0, y: -32 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 1,
+                          ease: 'easeOut',
+                          delay: 0.3,
+                        }}
+                        className="text-space-accent"
+                      >
+                        {crewMember.bio}
+                      </motion.p>
                     </div>
                   );
                 }
