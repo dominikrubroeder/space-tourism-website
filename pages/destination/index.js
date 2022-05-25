@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Breadcrumb from '../../components/layout/Breadcrumb';
 import TopLevelPageSection from '../../components/layout/TopLevelPageSection';
 import NavText from '../../components/typography/NavText';
@@ -97,12 +98,19 @@ const DestinationPage = () => {
               {destinations.map((destination, index) => {
                 if (index === activeTab) {
                   return (
-                    <h1
+                    <motion.h1
                       key={index}
+                      initial={{ opacity: 0, y: 32 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 1,
+                        ease: 'easeOut',
+                        delay: 0.3,
+                      }}
                       className={`text-[3.5rem] leading-none md:text-[5rem] xl:text-[6.25rem] transition-all}`}
                     >
                       {destination.name}
-                    </h1>
+                    </motion.h1>
                   );
                 }
               })}
@@ -110,18 +118,34 @@ const DestinationPage = () => {
               {destinations.map((destination, index) => {
                 if (index === activeTab) {
                   return (
-                    <p
+                    <motion.p
                       key={index}
+                      initial={{ opacity: 0, y: -32 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 1,
+                        ease: 'easeOut',
+                        delay: 0.3,
+                      }}
                       className="min-h-[10rem] md:min-h-[6rem] text-space-accent"
                     >
                       {destination.description}
-                    </p>
+                    </motion.p>
                   );
                 }
               })}
             </div>
 
-            <hr className="border-white/25" />
+            <motion.hr
+              initial={{ opacity: 0, width: '0%' }}
+              animate={{ opacity: 1, width: '100%' }}
+              transition={{
+                duration: 1,
+                ease: 'easeOut',
+                delay: 0.6,
+              }}
+              className="border-white/25"
+            />
 
             <div className="grid gap-8 md:grid-cols-2">
               <div className="text-center xl:text-left">
@@ -141,9 +165,19 @@ const DestinationPage = () => {
               </div>
 
               <div className="text-center xl:text-left">
-                <Subheading2 className="text-space-accent">
-                  Est. travel time
-                </Subheading2>
+                <motion.div
+                  initial={{ opacity: 0, y: 32 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 1,
+                    ease: 'easeOut',
+                    delay: 0.3,
+                  }}
+                >
+                  <Subheading2 className="text-space-accent">
+                    Est. travel time
+                  </Subheading2>
+                </motion.div>
 
                 {destinations.map((destination, index) => {
                   if (index === activeTab) {

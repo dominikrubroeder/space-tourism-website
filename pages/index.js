@@ -25,7 +25,7 @@ export default function Home() {
       </Head>
 
       <section className="h-screen flex items-end bg-home-mobile overflow-hidden bg-center bg-no-repeat bg-cover p-8 md:bg-home-tablet xl:bg-home-desktop">
-        <div className="grid gap-20 h-[80vh] max-w-7xl w-full mx-auto text-center xl:flex xl:justify-between xl:items-end xl:pb-32">
+        <div className="grid gap-20 h-[75vh] max-w-[69.375rem] w-full mx-auto text-center xl:flex xl:justify-between xl:items-end xl:pb-32">
           <HeroText />
 
           <ExploreButton>
