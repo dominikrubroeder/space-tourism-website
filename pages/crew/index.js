@@ -47,11 +47,11 @@ const CrewPage = () => {
 
   return (
     <div className="min-h-screen text-white bg-crew-mobile bg-no-repeat bg-center bg-cover md:bg-crew-tablet xl:bg-crew-desktop">
-      <TopLevelPageSection>
-        <Breadcrumb title="Meet your crew" count="02" />
+      <Breadcrumb title="Meet your crew" count="02" />
 
-        <div className="w-full grid gap-8 md:flex md:flex-col xl:grid xl:grid-cols-2 xl:max-w-7xl">
-          <div className="grid gap-0 md:order-2">
+      <TopLevelPageSection className="xl:pt-0 xl:pb-0">
+        <section className="relative w-full md:block xl:h-screen xl:pb-0 xl:grid xl:grid-cols-2 xl:max-w-7xl">
+          <div className="grid gap-0 w-full mx-auto md:fixed md:bottom-0 xl:absolute xl:right-0 xl:mr-0 xl:w-auto">
             {crews.map((crew, index) => {
               if (index === activeTab) {
                 return (
@@ -65,11 +65,11 @@ const CrewPage = () => {
                         ease: 'easeOut',
                         delay: 0.3,
                       }}
-                      className="mx-auto max-w-[50vh] h-[35vh] xl:h-[65vh] xl:w-[50vw]"
+                      className="flex align-bottom justify-end mx-auto max-w-[50vh] h-[35vh] md:h-[45vh] xl:h-[65vh] xl:w-[50vw]"
                     >
                       <img
                         src={crew.images.webp}
-                        className="w-full h-full object-contain block rounded-3xl"
+                        className="max-w-full h-full block self-end rounded-3xl"
                         alt={crew.name}
                       />
                     </motion.figure>
@@ -82,7 +82,7 @@ const CrewPage = () => {
                         ease: 'easeOut',
                         delay: 0.8,
                       }}
-                      className="border-white/25"
+                      className="border-white/25 md:hidden"
                     />
                   </>
                 );
@@ -90,13 +90,13 @@ const CrewPage = () => {
             })}
           </div>
 
-          <div className="max-w-md grid gap-8 mx-auto md:order-1 xl:flex xl:flex-col xl:gap-32">
-            <nav className="flex items-center gap-4 mx-auto xl:order-2 xl:ml-0">
+          <div className="max-w-md grid gap-8 mx-auto md:order-1 xl:pt-0 xl:flex xl:flex-col xl:gap-32 xl:self-end">
+            <nav className="flex items-center gap-4 mx-auto mt-8 md:mt-0 xl:mt-0 xl:order-2 xl:ml-0 xl:mb-16">
               {crews.map((_, index) => {
                 return (
                   <div
                     key={index}
-                    className={`w-2 h-2 rounded-full cursor-pointer ${
+                    className={`w-2 h-2 md:w-4 md:h-4 rounded-full cursor-pointer ${
                       index === activeTab ? 'bg-white/100' : 'bg-white/25'
                     }`}
                     onClick={() => setActiveTab(index)}
@@ -159,7 +159,7 @@ const CrewPage = () => {
               })}
             </div>
           </div>
-        </div>
+        </section>
       </TopLevelPageSection>
     </div>
   );

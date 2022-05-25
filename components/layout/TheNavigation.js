@@ -37,7 +37,7 @@ const TheNavigation = (props) => {
             }`}
           >
             <Link href={navigationItem.url}>
-              <a className="flex items-center gap-4 md:py-10">
+              <a className="flex items-center gap-4 md:py-10 transition-all">
                 <span className="md:hidden xl:inline-block">0{index}</span>
                 <NavText>{navigationItem.title.toUpperCase()}</NavText>
               </a>

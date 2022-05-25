@@ -1,9 +1,7 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Breadcrumb from '../../components/layout/Breadcrumb';
 import TopLevelPageSection from '../../components/layout/TopLevelPageSection';
-import NavText from '../../components/typography/NavText';
-import Subheading from '../../components/typography/Subheading';
-import Subheading2 from '../../components/typography/Subheading2';
 
 const technologies = [
   {
@@ -40,9 +38,9 @@ const TechnologyPage = () => {
 
   return (
     <div className="min-h-screen text-white bg-technology-mobile bg-no-repeat bg-center bg-cover md:bg-technology-tablet xl:bg-technology-desktop">
-      <TopLevelPageSection>
-        <Breadcrumb title="Space Launch 101" count="03" />
+      <Breadcrumb title="Space Launch 101" count="03" />
 
+      <TopLevelPageSection>
         <div className="w-full grid gap-8 xl:grid-cols-2 xl:max-w-7xl xl:flex">
           {technologies.map((technology, index) => {
             if (index === activeTab) {
@@ -80,16 +78,45 @@ const TechnologyPage = () => {
                   return (
                     <div key={index} className="grid gap-4 md:gap-8">
                       <div className="grid gap-1 md:gap-4">
-                        <h5 className="uppercase text-space-accent text-sm font-barlow-condensed tracking-[0.1475rem] md:text-[1rem]">
+                        <motion.h5
+                          initial={{ opacity: 0, x: -32 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{
+                            duration: 1,
+                            ease: 'easeOut',
+                            delay: 1,
+                          }}
+                          className="uppercase text-space-accent text-sm font-barlow-condensed tracking-[0.1475rem] md:text-[1rem]"
+                        >
                           The terminology ...
-                        </h5>
-                        <h1 className="text-2xl md:text-[2.5rem]">
+                        </motion.h5>
+
+                        <motion.h1
+                          initial={{ opacity: 0, y: 32 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{
+                            duration: 1,
+                            ease: 'easeOut',
+                            delay: 0.3,
+                          }}
+                          className="text-2xl md:text-[2.5rem]"
+                        >
                           {technology.name}
-                        </h1>
+                        </motion.h1>
                       </div>
-                      <p className="text-space-accent">
+
+                      <motion.p
+                        initial={{ opacity: 0, y: -32 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 1,
+                          ease: 'easeOut',
+                          delay: 0.3,
+                        }}
+                        className="text-space-accent"
+                      >
                         {technology.description}
-                      </p>
+                      </motion.p>
                     </div>
                   );
                 }

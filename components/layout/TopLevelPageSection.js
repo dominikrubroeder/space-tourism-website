@@ -4,7 +4,7 @@ const TopLevelPageSection = ({ children, className }) => {
   return (
     <FadeUpWhenInView htmlTag="section">
       <div
-        className={`grid gap-8 p-8 pt-24 mx-auto md:pt-40 xl:max-w-5xl xl:w-full ${className}`}
+        className={`grid gap-8 p-8 pt-24 mx-auto min-h-screen md:pt-56 xl:flex xl:flex-col xl:justify-center xl:max-w-6xl xl:w-full ${className}`}
       >
         {children}
       </div>
