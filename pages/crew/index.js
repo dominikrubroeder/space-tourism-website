@@ -22,9 +22,9 @@ const CrewPage = () => {
       <div className="min-h-screen text-white bg-crew-mobile bg-no-repeat bg-center bg-cover md:bg-crew-tablet xl:bg-crew-desktop">
         <Breadcrumb title="Meet your crew" count="02" />
 
-        <TopLevelPageSection className="xl:pt-0 xl:pb-0">
-          <section className="relative w-full md:block xl:h-screen xl:pb-0 xl:grid xl:grid-cols-2 xl:max-w-7xl">
-            <div className="grid gap-0 w-full mx-auto md:fixed md:bottom-0 xl:absolute xl:right-0 xl:mr-0 xl:w-auto">
+        <TopLevelPageSection className="md:pb-0 xl:pt-0">
+          <section className="relative w-full md:flex md:flex-col-reverse md:justify-between md:gap-8 xl:h-screen xl:pb-0 xl:grid xl:grid-cols-2 xl:max-w-7xl">
+            <div className="grid gap-0 w-full mx-auto xl:absolute xl:bottom-0 xl:right-0 xl:mr-0 xl:w-auto">
               {crewsData.map((crew, index) => {
                 if (index === activeTab) {
                   return (
@@ -38,12 +38,14 @@ const CrewPage = () => {
                           delay: 0.3,
                         }}
                       >
-                        <div className="text-center">
+                        <div className="relative w-56 h-56 m-auto sm:w-96 sm:h-96 xl:w-[30rem] xl:h-[30rem]">
                           <Image
-                            width={crew.images.sizes.width}
-                            height={crew.images.sizes.height}
                             src={crew.images.png}
                             alt={crew.name}
+                            width="100%"
+                            height="100%"
+                            layout="responsive"
+                            objectFit="contain"
                           />
                         </div>
                       </motion.div>
