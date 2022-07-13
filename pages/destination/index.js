@@ -7,6 +7,7 @@ import NavText from '../../components/typography/NavText';
 import Subheading from '../../components/typography/Subheading';
 import Subheading2 from '../../components/typography/Subheading2';
 import { destinationsData } from '../../data';
+import Image from 'next/image';
 
 const DestinationPage = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -29,7 +30,7 @@ const DestinationPage = () => {
             {destinationsData.map((destination, index) => {
               if (index === activeTab) {
                 return (
-                  <motion.img
+                  <motion.div
                     key={index}
                     src={destination.images.webp}
                     alt={destination.name}
@@ -40,8 +41,18 @@ const DestinationPage = () => {
                       ease: 'easeOut',
                       delay: 0.3,
                     }}
-                    className="w-[10.625rem] h-[10.625rem] mx-auto mb-4 md:mb-8 md:w-[18.75rem] md:h-[18.75rem] xl:w-[27.85rem] xl:h-[27.85rem]"
-                  />
+                    className="relative w-[10.625rem] h-[10.625rem] mx-auto mb-4 md:mb-8 md:w-[18.75rem] md:h-[18.75rem] xl:w-[27.85rem] xl:h-[27.85rem]"
+                  >
+                    <Image
+                      width="100%"
+                      height="100%"
+                      src={destination.images.png}
+                      alt={destination.name}
+                      layout="responsive"
+                      objectFit="contain"
+                      priority
+                    />
+                  </motion.div>
                 );
               }
             })}

@@ -46,6 +46,7 @@ const CrewPage = () => {
                             height="100%"
                             layout="responsive"
                             objectFit="contain"
+                            priority
                           />
                         </div>
                       </motion.div>
