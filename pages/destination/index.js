@@ -15,10 +15,10 @@ const DestinationPage = ({ data }) => {
   return (
     <>
       <Head>
-        <title>Destination | Space tourism website</title>
+        <title>Destination | Space tourism</title>
         <meta
           name="description"
-          content="Pick your destination | Space tourism website"
+          content="Pick your destination | Space tourism"
         />
       </Head>
 
@@ -206,8 +206,20 @@ export default DestinationPage;
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch('http://localhost:3000/data.json');
+  const res = await fetch(
+    'https://dominikrubroeder.de/assets/frontendmentor/space-tourism/data.json'
+  );
   const data = await res.json();
+
+  if (!data) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+        // statusCode: 301
+      },
+    };
+  }
 
   // By returning { props: { data: data.crew } }, the Crew component
   // will receive `data` as a prop at build time

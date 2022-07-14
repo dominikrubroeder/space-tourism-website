@@ -12,11 +12,8 @@ const CrewPage = ({ data }) => {
   return (
     <>
       <Head>
-        <title>Crew | Space tourism website</title>
-        <meta
-          name="description"
-          content="Meet your crew | Space tourism website"
-        />
+        <title>Crew | Space tourism</title>
+        <meta name="description" content="Meet your crew | Space tourism" />
       </Head>
 
       <div className="min-h-screen text-white bg-crew-mobile bg-no-repeat bg-center bg-cover md:bg-crew-tablet xl:bg-crew-desktop">
@@ -151,8 +148,20 @@ export default CrewPage;
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch('http://localhost:3000/data.json');
+  const res = await fetch(
+    'https://dominikrubroeder.de/assets/frontendmentor/space-tourism/data.json'
+  );
   const data = await res.json();
+
+  if (!data) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+        // statusCode: 301
+      },
+    };
+  }
 
   // By returning { props: { data: data.crew } }, the Crew component
   // will receive `data` as a prop at build time
