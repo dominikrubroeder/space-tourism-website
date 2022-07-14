@@ -52,22 +52,24 @@ const TechnologyPage = ({ data }) => {
             })}
 
             <div className="max-w-md grid gap-8 mx-auto xl:ml-0 xl:flex xl:gap-4 xl:order-1">
-              <nav className="flex items-center gap-4 mx-auto xl:flex-col">
-                {technologiesData.map((_, index) => {
-                  return (
-                    <li
-                      key={index}
-                      className={`w-10 h-10 rounded-full border border-white/50 list-none flex items-center justify-center md:w-[3.75rem] md:h-[3.75rem] md:text-2xl cursor-pointer transition-all duration-1000 ${
-                        index === activeTab
-                          ? 'text-space-dark bg-white'
-                          : 'text-white'
-                      }`}
-                      onClick={() => setActiveTab(index)}
-                    >
-                      {index + 1}
-                    </li>
-                  );
-                })}
+              <nav>
+                <ul className="flex items-center gap-4 mx-auto xl:flex-col">
+                  {technologiesData.map((_, index) => {
+                    return (
+                      <li
+                        key={index}
+                        className={`w-10 h-10 rounded-full border border-white/50 list-none flex items-center justify-center md:w-[3.75rem] md:h-[3.75rem] md:text-2xl cursor-pointer transition-all duration-1000 ${
+                          index === activeTab
+                            ? 'text-space-dark bg-white'
+                            : 'text-white'
+                        }`}
+                        onClick={() => setActiveTab(index)}
+                      >
+                        {index + 1}
+                      </li>
+                    );
+                  })}
+                </ul>
               </nav>
 
               <div className="max-w-md px-4 text-center xl:text-left">

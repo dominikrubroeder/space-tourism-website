@@ -29,26 +29,28 @@ const TheNavigation = (props) => {
   };
 
   return (
-    <nav className={props.className}>
-      {navigationItems.map((navigationItem, index, array) => {
-        return (
-          <li
-            key={index}
-            className={`list-none text-white flex items-center gap-4 transition-all md:py-10 md:border-b-2 ${
-              router.pathname === navigationItem.url
-                ? 'md:border-white'
-                : 'md:border-transparent'
-            }
+    <nav>
+      <ul className={props.className}>
+        {navigationItems.map((navigationItem, index, array) => {
+          return (
+            <li
+              key={index}
+              className={`list-none text-white flex items-center gap-4 transition-all md:py-10 md:border-b-2 ${
+                router.pathname === navigationItem.url
+                  ? 'md:border-white'
+                  : 'md:border-transparent'
+              }
             ${index === array.length ? '' : 'mb-4 md:mb-0'}`}
-            onClick={() => onClickHandler(navigationItem.url)}
-          >
-            <span className="font-barlow-condensed font-bold md:hidden xl:inline-block">
-              0{index}
-            </span>
-            <NavText>{navigationItem.title.toUpperCase()}</NavText>
-          </li>
-        );
-      })}
+              onClick={() => onClickHandler(navigationItem.url)}
+            >
+              <span className="font-barlow-condensed font-bold md:hidden xl:inline-block">
+                0{index}
+              </span>
+              <NavText>{navigationItem.title.toUpperCase()}</NavText>
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 };
