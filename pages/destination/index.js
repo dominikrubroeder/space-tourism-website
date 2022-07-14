@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Breadcrumb from '../../components/layout/Breadcrumb';
 import TopLevelPageSection from '../../components/layout/TopLevelPageSection';
 import NavText from '../../components/typography/NavText';
 import Subheading from '../../components/typography/Subheading';
 import Subheading2 from '../../components/typography/Subheading2';
-import { destinationsData } from '../../data';
-import Image from 'next/image';
 
-const DestinationPage = () => {
+const DestinationPage = ({ data }) => {
   const [activeTab, setActiveTab] = useState(0);
+  const destinationData = data;
 
   return (
     <>
@@ -27,7 +27,7 @@ const DestinationPage = () => {
 
         <TopLevelPageSection>
           <section className="w-full xl:grid xl:gap-8 xl:grid-cols-2 xl:max-w-7xl">
-            {destinationsData.map((destination, index) => {
+            {destinationData.map((destination, index) => {
               if (index === activeTab) {
                 return (
                   <motion.div
@@ -59,7 +59,7 @@ const DestinationPage = () => {
 
             <div className="max-w-md grid gap-8 mx-auto">
               <nav className="flex items-center gap-7 mx-auto">
-                {destinationsData.map((destination, index) => {
+                {destinationData.map((destination, index) => {
                   return (
                     <NavText
                       key={index}
@@ -77,7 +77,7 @@ const DestinationPage = () => {
               </nav>
 
               <div className="text-center xl:text-left">
-                {destinationsData.map((destination, index) => {
+                {destinationData.map((destination, index) => {
                   if (index === activeTab) {
                     return (
                       <motion.h1
@@ -97,7 +97,7 @@ const DestinationPage = () => {
                   }
                 })}
 
-                {destinationsData.map((destination, index) => {
+                {destinationData.map((destination, index) => {
                   if (index === activeTab) {
                     return (
                       <motion.p
@@ -135,7 +135,7 @@ const DestinationPage = () => {
                     Avg. distance
                   </Subheading2>
 
-                  {destinationsData.map((destination, index) => {
+                  {destinationData.map((destination, index) => {
                     if (index === activeTab) {
                       return (
                         <motion.div
@@ -164,7 +164,7 @@ const DestinationPage = () => {
                     Est. travel time
                   </Subheading2>
 
-                  {destinationsData.map((destination, index) => {
+                  {destinationData.map((destination, index) => {
                     if (index === activeTab) {
                       return (
                         <motion.div
@@ -199,3 +199,21 @@ const DestinationPage = () => {
 };
 
 export default DestinationPage;
+
+// This function gets called at build time on server-side.
+// It won't be called on client-side, so you can even do
+// direct database queries.
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch('http://localhost:3000/data.json');
+  const data = await res.json();
+
+  // By returning { props: { data: data.crew } }, the Crew component
+  // will receive `data` as a prop at build time
+  return {
+    props: {
+      data: data.destinations,
+    },
+  };
+}

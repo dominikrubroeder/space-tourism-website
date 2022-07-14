@@ -1,12 +1,12 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Breadcrumb from '../../components/layout/Breadcrumb';
 import TopLevelPageSection from '../../components/layout/TopLevelPageSection';
-import { technologiesData } from '../../data';
-import Image from 'next/image';
 
-const TechnologyPage = () => {
+const TechnologyPage = ({ data }) => {
   const [activeTab, setActiveTab] = useState(0);
+  const technologiesData = data;
 
   return (
     <div className="min-h-screen text-white bg-technology-mobile bg-no-repeat bg-center bg-cover md:bg-technology-tablet xl:bg-technology-desktop">
@@ -118,3 +118,21 @@ const TechnologyPage = () => {
 };
 
 export default TechnologyPage;
+
+// This function gets called at build time on server-side.
+// It won't be called on client-side, so you can even do
+// direct database queries.
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch('http://localhost:3000/data.json');
+  const data = await res.json();
+
+  // By returning { props: { data: data.crew } }, the Crew component
+  // will receive `data` as a prop at build time
+  return {
+    props: {
+      data: data.technology,
+    },
+  };
+}

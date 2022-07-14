@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 import Breadcrumb from '../../components/layout/Breadcrumb';
 import TopLevelPageSection from '../../components/layout/TopLevelPageSection';
-import { motion } from 'framer-motion';
-import { crewsData } from '../../data';
-import Image from 'next/image';
 
-const CrewPage = () => {
+const CrewPage = ({ data }) => {
   const [activeTab, setActiveTab] = useState(0);
+  const crewData = data;
 
   return (
     <>
@@ -25,7 +25,7 @@ const CrewPage = () => {
         <TopLevelPageSection className="md:pb-0 xl:pt-0">
           <section className="relative w-full md:flex md:flex-col-reverse md:justify-between md:gap-8 xl:h-screen xl:pb-0 xl:grid xl:grid-cols-2 xl:max-w-7xl">
             <div className="grid gap-0 w-full mx-auto xl:absolute xl:bottom-0 xl:right-0 xl:mr-0 xl:w-auto">
-              {crewsData.map((crew, index) => {
+              {crewData.map((crew, index) => {
                 if (index === activeTab) {
                   return (
                     <div key={index}>
@@ -69,7 +69,7 @@ const CrewPage = () => {
 
             <div className="max-w-md grid gap-8 mx-auto md:order-1 xl:pt-0 xl:flex xl:flex-col xl:gap-32 xl:self-end">
               <nav className="flex items-center gap-4 mx-auto mt-8 md:mt-0 xl:mt-0 xl:order-2 xl:ml-0 xl:mb-16">
-                {crewsData.map((_, index) => {
+                {crewData.map((_, index) => {
                   return (
                     <div
                       key={index}
@@ -83,7 +83,7 @@ const CrewPage = () => {
               </nav>
 
               <div className="xl:order-1">
-                {crewsData.map((crewMember, index) => {
+                {crewData.map((crewMember, index) => {
                   if (index === activeTab) {
                     return (
                       <div
@@ -144,3 +144,21 @@ const CrewPage = () => {
 };
 
 export default CrewPage;
+
+// This function gets called at build time on server-side.
+// It won't be called on client-side, so you can even do
+// direct database queries.
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch('http://localhost:3000/data.json');
+  const data = await res.json();
+
+  // By returning { props: { data: data.crew } }, the Crew component
+  // will receive `data` as a prop at build time
+  return {
+    props: {
+      data: data.crew,
+    },
+  };
+}

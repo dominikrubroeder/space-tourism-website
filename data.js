@@ -1,3 +1,5 @@
+// Import and use this data file or getStaticProps with data.json within the components to fetch
+
 export const crewsData = [
   {
     name: 'Douglas Hurley',
